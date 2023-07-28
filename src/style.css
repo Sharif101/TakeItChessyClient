@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Unna:ital,wght@0,400;0,700;1,400&display=swap");
+
+:root {
+  --btn-color: linear-gradient(135deg, #14bd9d 0%, #40c77c 100%);
+  --error: #ee4c63;
+  --box-shadow: 0px 3px 7px 1px rgba(207, 207, 207, 0.979);
+  --nav-backgroud: #eef0f4;
+  --menu-fort: "Dancing Script", cursive;
+  --description-font: "Great Vibes", cursive;
+  --dashboad-titlefont: "Unna", serif;
+  --icons-color: #646464de;
+  --food-list-backgroud: #f3f3f39f;
+}
+
+.header-navbar {
+  background: var(--nav-backgroud);
+  border-radius: 0;
+  box-shadow: 6.31px 6.31px 21px #d1d3d7, -6.31px -6.31px 21px #ffffff;
+}
+
+.form-title {
+  font-family: var(--dashboad-titlefont);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 35px;
+  position: relative;
+  margin-top: 20px;
+}
+
+.form-title::after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 70px;
+  background-color: rgb(143, 143, 143);
+  top: 35px;
+  left: 0;
+}
+
+.inpt-form input,
+textarea {
+  margin: 6px 0;
+  box-shadow: var(--box-shadow);
+}
+
+.seleted-value {
+  margin: 6px 0;
+  box-shadow: var(--box-shadow);
+  font-weight: 400;
+}
+/* .inpt-form input:focus {
+  border: 1px solid red;
+} */
+
+.custom-button {
+  background-color: #f1f1f1;
+  padding: 8px 12px;
+  margin-top: 10px;
+  border-radius: 3px;
+  border-radius: 7px;
+  font-family: var(--dashboad-titlefont);
+  font-weight: 400;
+  /* --------------------------- */
+}
+
+.modal-title {
+  font-family: var(--dashboad-titlefont);
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.menu-list-titles {
+  /* background-color: #fafafa; */
+  padding: 10px;
+  font-family: var(--dashboad-titlefont);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.foodicons button {
+  font-size: 13px;
+  color: white;
+  background-color: var(--icons-color);
+  padding: 5px 15px;
+  border-radius: 8px;
+}
+
+.food-list {
+  background-color: var(--food-list-backgroud);
+  padding: 0px 20px 10px 20px;
+  margin-top: 20px;
+  box-shadow: 6.31px 6.31px 21px #d1d3d7, -6.31px -6.31px 21px #ffffff;
+  border-radius: 10px;
+}
+.form-title {
+  position: relative;
+}
+/* ----------------------- */
+.viewModal {
+  width: 40%;
+  position: absolute;
+  content: "";
+  top: 15%;
+  right: 1%;
+  background-color: #fffaf6;
+  box-shadow: 6.31px 6.31px 21px #d1d3d7, -6.31px -6.31px 21px #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.food_img {
+  width: 20%;
+}
+.food_info {
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center;
+}
+.food_info p {
+  font-family: var(--dashboad-titlefont);
+  font-weight: 600;
+}
+.modal-title {
+  font-family: var(--dashboad-titlefont);
+  font-size: 18px;
+  font-weight: 600;
+}
+.close {
+  cursor: pointer;
+}
