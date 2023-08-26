@@ -6,6 +6,8 @@ import Dashboard from "../Components/Dashboard/Dashboard";
 import DashLayout from "../Layout/DashLayout";
 import AddFood from "../Components/AddFood/AddFood";
 import AddCategory from "../Components/AddCategory/AddCategory";
+import OrderLayout from "../Layout/OrderLayout";
+import AddEmployeCategory from "../Components/AddEmployeCategory/AddEmployeCategory";
 
 let router = createBrowserRouter([
   {
@@ -16,6 +18,16 @@ let router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
+      // {
+      //   path: "/ordernow",
+      //   element: <OrderLayout></OrderLayout>,
+      //   children: [
+      //     {
+      //       path: "/ordernow",
+      //       element: <OrderNow></OrderNow>,
+      //     },
+      //   ],
+      // },
       {
         path: "/ordernow",
         element: <OrderNow></OrderNow>,
@@ -24,10 +36,6 @@ let router = createBrowserRouter([
         path: "/dashboard",
         element: <DashLayout></DashLayout>,
         children: [
-          // {
-          //   path: "/dashboard",
-          //   element: <Dashboard></Dashboard>,
-          // },
           {
             path: "/dashboard/addfood",
             element: <AddFood></AddFood>,
@@ -35,6 +43,10 @@ let router = createBrowserRouter([
           {
             path: "/dashboard/addcategory",
             element: <AddCategory></AddCategory>,
+          },
+          {
+            path: "/dashboard/addemployeecategory",
+            element: <AddEmployeCategory></AddEmployeCategory>,
           },
         ],
       },

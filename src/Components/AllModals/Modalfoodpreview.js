@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../style.css";
-import pic from "../../images/download (1).jpg";
+// import pic from "../../images/download (1).jpg";
 
 const Modalfoodpreview = ({ setFoodpreviewmodal, _id }) => {
   // console.log(_id);
@@ -16,7 +16,7 @@ const Modalfoodpreview = ({ setFoodpreviewmodal, _id }) => {
   // console.log(singlefood);
 
   return (
-    <div className="viewModal">
+    <div className="viewModaledit">
       <div className="flex justify-between items-center ">
         <h1 className="modal-title">Food Details</h1>
         <label
@@ -35,31 +35,47 @@ const Modalfoodpreview = ({ setFoodpreviewmodal, _id }) => {
           <div className="mt-5">
             <div>
               {/* --------------- */}
-              <div className="food_info mt-5">
-                <div className="w-full mr-7">
-                  <img src={pic} alt="" />
+              <div className="food_info-edit mt-5">
+                <div className="food_info-edit-img mr-7">
+                  <img src={singlefood.foodpic} alt="" />
                 </div>
-                <div className="w-full">
-                  <p>Food Name:</p>
-                  <small>{singlefood.foodname}</small>
-                </div>
-                <div className="w-full">
-                  <p>Category:</p>
-                  <small>none</small>
-                </div>
-                <div className="w-full">
-                  <p>Price:</p>
-                  <small>{singlefood.foodprice}</small>
+                <div className="editfrom">
+                  <div className="w-full">
+                    <p>
+                      <span>Food Name: </span>
+                      {singlefood.foodname}
+                    </p>
+                  </div>
+                  <div className="w-full">
+                    <p>
+                      <span>Category: </span>
+                      None
+                    </p>
+                  </div>
+                  <div className="w-full">
+                    <p>
+                      <span>Food Price: </span>
+                      {singlefood.foodprice}
+                    </p>
+                  </div>
+
+                  <div className="w-full">
+                    <p>
+                      <span>Food Status: </span>
+                      {singlefood.foodstatus}
+                    </p>
+                  </div>
+                  <div className="w-full">
+                    <p>
+                      <span>Food Descriptions: </span>
+                      <br />
+                      {singlefood.fooddescriptions}
+                    </p>
+                  </div>
                 </div>
               </div>
               {/* -------------------------- */}
               {/* --------------- */}
-              <div className="food_info mt-5">
-                <div className="w-full">
-                  <p>Food Descriptions:</p>
-                  <small>{singlefood.fooddescriptions}</small>
-                </div>
-              </div>
 
               {/* ---------------------------- */}
             </div>

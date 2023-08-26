@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../../style.css";
+import toast, { Toaster } from "react-hot-toast";
 
 const AddFoodModal = () => {
   const [foodname, setFoodname] = useState();
@@ -8,22 +9,25 @@ const AddFoodModal = () => {
   const [fooddescriptions, setFooddescriptions] = useState();
   const [foodpic, setFoodpic] = useState();
   const [data, setData] = useState([]);
-  const [categoryid, setCategoryid] = useState("");
-  const [categoryname, setCategory] = useState("");
+  const [categoryid, setCategoryid] = useState();
+  const [categoryname, setCategory] = useState();
+  const [foodstatus, setFoodstatus] = useState();
 
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setCategoryid(e.target.value);
-    // console.log(e.target.value);
   };
 
-  // console.log(categoryname);
+  const handleChangeradio = (e) => {
+    setFoodstatus(e.target.value);
+    console.log(e.target.value);
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
     if (!foodname || !foodprice) {
-      alert("pleaase fill all field");
+      toast.error("pleaase fill all field");
     }
     try {
       const config = {
@@ -33,17 +37,23 @@ const AddFoodModal = () => {
       };
       const { data } = await axios.post(
         "http://localhost:5000/allfood",
-        { foodname, foodprice, fooddescriptions, categoryid, foodpic },
+        {
+          categoryid,
+          foodname,
+          foodprice,
+          fooddescriptions,
+          foodstatus,
+          categoryname,
+          foodpic,
+        },
         config
       );
-      alert("created successfull");
-      // e.target.reset();
-
-      // localStorage.setItem("foodInfo", JSON.stringify(data));
+      toast.success("created successfull");
 
       console.log(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      toast.error("Something Went Worng");
     }
   };
 
@@ -54,8 +64,6 @@ const AddFoodModal = () => {
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);
-
-  // console.log(data);
 
   // ---------------------------------------------
 
@@ -116,12 +124,7 @@ const AddFoodModal = () => {
                   Choose Food Cetagories
                 </option>
                 {data.map((d) => (
-                  <option
-                    key={d._id}
-                    value={d._id}
-                    // onChange={(e) => setCategoryid(e.target.value)}
-                    // onChange={() => setCategory(this, d.categoryname)}
-                  >
+                  <option key={d._id} value={d._id}>
                     {d.categoryname}
                   </option>
                 ))}
@@ -163,8 +166,39 @@ const AddFoodModal = () => {
 
               {/* -------------------------------------- */}
 
+              {/* -------------------------------------- */}
+
+              <div
+                className="w-80 flex justify-between mt-5"
+                onChange={handleChangeradio}
+              >
+                <div className="form-control">
+                  <label className="label cursor-pointer">
+                    <span className="label-text mr-3">In stock</span>
+                    <input
+                      type="radio"
+                      name="radio-10"
+                      value="In Stoke"
+                      className=" radio checked:bg-blue-500"
+                    />
+                  </label>
+                </div>
+                <div className="form-control">
+                  <label className="label cursor-pointer">
+                    <span className="label-text mr-3">Out of stock</span>
+                    <input
+                      type="radio"
+                      name="radio-10"
+                      value="Out of Stoke"
+                      className="radio checked:bg-red-500"
+                    />
+                  </label>
+                </div>
+              </div>
+
+              {/* -------------------------------------- */}
               <button
-                className="custom-button"
+                className="custom-button w-9/12"
                 type="submit"
                 onClick={submitHandler}
                 // isLoading={loading}

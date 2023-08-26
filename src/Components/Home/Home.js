@@ -1,9 +1,14 @@
 import React from "react";
+import Banner from "./Banner";
+import Welcome from "./Welcome";
+import PropuralDish from "./PropuralDish";
 
 const Home = () => {
   return (
     <div>
-      <h2>this is home page</h2>
+      <Banner></Banner>
+      <Welcome></Welcome>
+      <PropuralDish></PropuralDish>
     </div>
   );
 };

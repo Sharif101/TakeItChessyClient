@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const AddCategoryModal = () => {
   const [categoryname, setCategoryname] = useState();
   const [categorypic, setCategorypic] = useState();
+  const [loading, setLoading] = useState(false);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -18,14 +20,13 @@ const AddCategoryModal = () => {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/allcategory",
+        "https://takeitchessy-q09m0q88j-sharif101.vercel.app/allcategory",
         { categoryname, categorypic },
         config
       );
-      alert("created successfull");
+      // alert("created successfull");
+      toast.success("Successfully Added!");
       // e.target.reset();
-
-      // localStorage.setItem("foodInfo", JSON.stringify(data));
 
       console.log(data);
     } catch (error) {
@@ -33,8 +34,39 @@ const AddCategoryModal = () => {
     }
   };
 
+  // ---------------------------------------------
+
+  const postPicture = (pics) => {
+    setLoading(true);
+
+    if (pics === undefined) {
+      alert("please seleted image");
+      return;
+    }
+    console.log(pics);
+    if (pics.type === "image/jpeg" || pics.type === "image/png") {
+      const data = new FormData();
+      data.append("file", pics);
+      data.append("upload_preset", "Food-site");
+      data.append("cloud_name", "dnvh5aa0j");
+      fetch("https://api.cloudinary.com/v1_1/dnvh5aa0j/image/upload", {
+        method: "Post",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setCategorypic(data.url);
+          console.log(data.url);
+          setLoading(false);
+        });
+    } else {
+      alert("Please seleted image");
+    }
+  };
+
   return (
     <div className="mx-3">
+      <Toaster position="top-center" reverseOrder={false} />
       {/* Open the modal using ID.showModal() method */}
       <button className="btn" onClick={() => window.my_modal_5.showModal()}>
         + Add Food Category
@@ -45,7 +77,7 @@ const AddCategoryModal = () => {
             Never eat more than you can life!
           </h3>
           <div>
-            <form className="flex flex-col items-center inpt-form">
+            <div className="flex flex-col items-center inpt-form">
               <input
                 type="text"
                 placeholder="Add Food Category"
@@ -60,22 +92,23 @@ const AddCategoryModal = () => {
                 className="input input-bordered input-md w-full max-w-xs"
                 multiple
                 accept="image/png, image/png, image/jpeg"
+                onChange={(e) => postPicture(e.target.files[0])}
               />
 
               {/* -------------------------------------- */}
 
               <button
-                className="custom-button"
+                className="custom-button w-9/12"
                 type="submit"
                 onClick={submitHandler}
               >
                 Submit
               </button>
-            </form>
+            </div>
           </div>
           <div className="modal-action">
             {/* if there is a button in form, it will close the modal */}
-            <button className="btn">Close</button>
+            <button className="btn ">Close</button>
           </div>
         </form>
       </dialog>

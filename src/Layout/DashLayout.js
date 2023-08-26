@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import SideNav from "../Components/SideNav/SideNav";
 import "../style.css";
+import SideNav from "../Components/SideNav/SideNav";
 
 const DashLayout = () => {
   return (

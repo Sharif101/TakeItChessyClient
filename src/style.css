@@ -1,23 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Unna:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lora:ital,wght@1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap");
 
 :root {
   --btn-color: linear-gradient(135deg, #14bd9d 0%, #40c77c 100%);
   --error: #ee4c63;
   --box-shadow: 0px 3px 7px 1px rgba(207, 207, 207, 0.979);
-  --nav-backgroud: #eef0f4;
+  --nav-backgroud: #fcf8f8;
   --menu-fort: "Dancing Script", cursive;
   --description-font: "Great Vibes", cursive;
+  --home-title: "Lora", serif;
   --dashboad-titlefont: "Unna", serif;
+  --welcome-font: "Kaushan Script", cursive;
   --icons-color: #646464de;
   --food-list-backgroud: #f3f3f39f;
+  --primary-color: #ff9563;
+  --text-color: #555555;
+}
+
+.custom-button {
+  padding: 8px 12px;
+  margin-top: 10px;
+  border-radius: 3px;
+  font-family: var(--dashboad-titlefont);
+  font-weight: 700;
+  -webkit-border-radius: 14px;
+  border-radius: 14px;
+  background: #ffffff;
+  -webkit-box-shadow: 5px 5px 10px #d4d4d4, -5px -5px 10px #ffffff;
+  box-shadow: 5px 5px 10px #d4d4d4, -5px -5px 10px #ffffff;
+  border: none;
+  /* --------------------------- */
 }
 
 .header-navbar {
   background: var(--nav-backgroud);
   border-radius: 0;
-  box-shadow: 6.31px 6.31px 21px #d1d3d7, -6.31px -6.31px 21px #ffffff;
+  position: relative;
+  /* box-shadow: 6.31px 6.31px 21px #d1d3d7, -6.31px -6.31px 21px #ffffff; */
 }
 
 .form-title {
@@ -55,17 +77,6 @@ textarea {
   border: 1px solid red;
 } */
 
-.custom-button {
-  background-color: #f1f1f1;
-  padding: 8px 12px;
-  margin-top: 10px;
-  border-radius: 3px;
-  border-radius: 7px;
-  font-family: var(--dashboad-titlefont);
-  font-weight: 400;
-  /* --------------------------- */
-}
-
 .modal-title {
   font-family: var(--dashboad-titlefont);
   font-size: 18px;
@@ -99,7 +110,17 @@ textarea {
   position: relative;
 }
 /* ----------------------- */
-.viewModal {
+
+.modal-title {
+  font-family: var(--dashboad-titlefont);
+  font-size: 18px;
+  font-weight: 600;
+}
+.close {
+  cursor: pointer;
+}
+
+.viewModaledit {
   width: 40%;
   position: absolute;
   content: "";
@@ -110,24 +131,302 @@ textarea {
   padding: 25px;
   border-radius: 15px;
 }
+.food_info-edit-img {
+  width: 40%;
+}
 
-.food_img {
-  width: 20%;
-}
-.food_info {
+.food_info-edit {
   display: flex;
-  justify-content: space-between !important;
-  align-items: center;
+  /* align-items: center; */
 }
-.food_info p {
+
+.editfrom {
+  width: 50%;
+  padding-left: 50px;
+}
+.editfrom span {
   font-family: var(--dashboad-titlefont);
+  font-size: 16px;
   font-weight: 600;
+  padding-right: 10px;
 }
-.modal-title {
-  font-family: var(--dashboad-titlefont);
+.editfrom p {
+  margin-bottom: 5px;
+  font-family: sans-serif;
+  font-size: 12px;
+}
+
+.editfrom input,
+textarea {
+  -webkit-border-radius: 14px;
+  border-radius: 14px;
+  background: #ffffff;
+  -webkit-box-shadow: 5px 5px 10px #d4d4d4, -5px -5px 10px #ffffff;
+  box-shadow: 5px 5px 10px #d4d4d4, -5px -5px 10px #ffffff;
+  border: none;
+  margin-top: 7px;
+}
+
+.inpt-field {
+  margin-bottom: 10px;
+}
+
+/* banner part */
+#banner-parts .text h5 {
+  font-family: var(--home-title);
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--primary-color);
+  padding-bottom: 10px;
+}
+
+#banner-parts .text h1 {
+  font-family: var(--description-font);
+  font-weight: 500;
+  font-size: 60px;
+}
+
+#banner-parts .text p {
+  font-family: var(--home-title);
   font-size: 18px;
-  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 50px;
 }
-.close {
-  cursor: pointer;
+/* -------------------Custom button 1------------------------------ */
+.banner-btn-1 {
+  position: relative;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  /* border-right: 1px solid transparent; */
+}
+
+.banner-btn-1::before {
+  width: 60px;
+  height: 1px;
+  position: absolute;
+  content: "";
+  top: 0px;
+  border-radius: 5px;
+  z-index: -1;
+  background-color: #2c3033;
+  left: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.banner-btn-1::after {
+  width: 60px;
+  height: 1px;
+  position: absolute;
+  content: "";
+  bottom: 0px;
+  border-radius: 5px;
+  z-index: -1;
+  background-color: #2c3033;
+  left: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.banner-btn-1 .btn1 {
+  padding: 14px 0px 14px 25px;
+  border-left: 1px solid #2c3033;
+  position: relative;
+  transition: 0.5s;
+}
+.banner-btn-1 img {
+  margin-left: 20px;
+}
+.banner-btn-1 .btn1::after {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  content: "";
+  top: 21px;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: #ffeee7;
+  right: -24px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.banner-btn-1 .btn1:hover {
+  color: var(--primary-color);
+}
+
+.banner-btn-1:hover .btn1::after {
+  background-color: #ff6426;
+}
+.banner-btn-1 a {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: var(--home-title);
+}
+
+.banner-btn-1:hover .btn1::after {
+  right: -33px;
+}
+/* ------------------Custom btn end 1----------------------------------- */
+#banner-parts .banner_btn .banner-btn-2 a span {
+  width: 44px;
+  height: 44px;
+  background-color: #fcf5ee;
+  display: flex;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 41px;
+  font-size: 14px;
+  color: #ff6426;
+  margin-left: 20px;
+  margin-right: 13px;
+  padding-left: 5px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  align-items: center;
+  justify-content: center;
+}
+
+#banner-parts .banner_btn .banner-btn-2 a {
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: var(--home-title);
+}
+
+#banner-parts .banner_btn .banner-btn-2 a:hover {
+  color: var(--primary-color);
+  transition: 0.5s;
+}
+
+/* ______________________________________________ */
+
+.welcome-part .text .titte_first span {
+  color: rgba(218, 223, 227, 0.6);
+  font-family: "Kaushan Script", Sans-serif;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+.welcome-part .text .titte_second span {
+  color: #25292da8;
+  font-family: "Rubik", Sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.welcome-part .text .titte_second {
+  margin-top: -40px;
+}
+
+.welcome-part .text .titte_second span::after {
+  position: absolute;
+  content: "";
+  bottom: -21px;
+  left: 30%;
+  height: 5px;
+  width: 40%;
+  background-color: var(--primary-color);
+}
+
+.welcome-part .text p {
+  color: #7b7e81;
+  font-family: "Open Sans", Sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+/* _____________________________________________ */
+#propural-dish .title p {
+  color: #555555;
+  font-size: 16px;
+  margin-bottom: 7px;
+  font-family: var(--home-title);
+}
+
+#propural-dish .title h1 {
+  font-size: 40px;
+  color: #2c3033;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  font-family: var(--dashboad-titlefont);
+  margin-bottom: 30px;
+}
+
+#propural-dish .title h1::after {
+  width: 73px;
+  height: 10px;
+  position: absolute;
+  content: "";
+  bottom: 14px;
+  z-index: -1;
+  left: 0;
+  background-color: #ff6426;
+}
+
+#propural-dish .single-food .text {
+  padding: 40px 30px;
+  border: 1px solid #e7e7e7;
+  border-radius: 100px 0px 623px 77px / 0px 50px 128px 58px;
+  background-color: #fff;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+#propural-dish .single-food .text h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-family: var(--home-title);
+}
+
+#propural-dish .single-food:hover .text {
+  border: 1px solid transparent;
+  box-shadow: 0px 15px 30px rgba(115, 113, 127, 0.1);
+  background-color: #fff;
+}
+#propural-dish .single-food .text p {
+  font-family: var(--home-title);
+  padding-bottom: 14px;
+}
+#propural-dish .single-food .text h3 {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--home-title);
+}
+
+#propural-dish .single-food .text span {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--home-title);
+}
+
+/* ----------------------for image---------------------------- */
+#propural-dish .single-food .image {
+  height: 250px !important;
+}
+
+#propural-dish .single-food .image img {
+  width: 100%;
+  height: 100%;
+}
+/* ------------------------------------------------------------ */
+
+.orderfood-dropdown {
+  border: 1px solid rgba(49, 49, 49, 0.247);
+  box-shadow: none;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.search-food input {
+  border: 1px solid rgba(49, 49, 49, 0.336);
+  box-shadow: none;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 14px;
 }

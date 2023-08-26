@@ -17,7 +17,7 @@ const SideNav = () => {
                     : {}
                 }
               >
-                Foods
+                All Foods
                 {/* Add food */}
               </NavLink>
             </li>
@@ -30,7 +30,31 @@ const SideNav = () => {
                     : {}
                 }
               >
-                Categories
+                Food Categories
+              </NavLink>
+            </li>
+            <li className="my-2">
+              <NavLink
+                to="/dashboard/addemployee"
+                style={({ isActive }) =>
+                  isActive
+                    ? { backgroundColor: "#646464", borderRadius: "6px" }
+                    : {}
+                }
+              >
+                All Employee
+              </NavLink>
+            </li>
+            <li className="my-2">
+              <NavLink
+                to="/dashboard/addemployeecategory"
+                style={({ isActive }) =>
+                  isActive
+                    ? { backgroundColor: "#646464", borderRadius: "6px" }
+                    : {}
+                }
+              >
+                Employee Category
               </NavLink>
             </li>
           </ul>
