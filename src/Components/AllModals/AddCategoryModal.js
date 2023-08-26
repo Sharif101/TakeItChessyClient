@@ -27,8 +27,9 @@ const AddCategoryModal = () => {
       // alert("created successfull");
       toast.success("Successfully Added!");
       // e.target.reset();
+      setCategoryname("");
 
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       console.log(error);
     }

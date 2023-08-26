@@ -50,7 +50,13 @@ const AddFoodModal = () => {
       );
       toast.success("created successfull");
 
-      console.log(data);
+      setFoodname("");
+      setFoodprice("");
+      setFooddescriptions("");
+      setFoodpic("");
+      setFoodstatus("");
+      setCategoryid("");
+      // console.log(data);
     } catch (error) {
       // console.log(error);
       toast.error("Something Went Worng");
