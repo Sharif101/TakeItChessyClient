@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import AddEmployeCategoryModal from "../AllModals/AddEmployeCategoryModal";
+import SingleEmployeeCategory from "./SingleEmployeeCategory";
 
 const AddEmployeCategory = () => {
+  let [data, setData] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/getallemployeecategory")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, [data]);
   return (
     <div>
       <Toaster position="top-center" reverseOrder={false} />
@@ -22,6 +29,13 @@ const AddEmployeCategory = () => {
             <h1>Action</h1>
           </div>
           {/* _____________________________________________ */}
+
+          {data.map((data) => (
+            <SingleEmployeeCategory
+              data={data}
+              key={data._id}
+            ></SingleEmployeeCategory>
+          ))}
         </div>
       </div>
     </div>
