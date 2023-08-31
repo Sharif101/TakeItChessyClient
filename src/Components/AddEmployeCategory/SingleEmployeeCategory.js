@@ -1,6 +1,7 @@
 import { FaTrash } from "react-icons/fa";
 
-const SingleEmployeeCategory = ({ data }) => {
+const SingleEmployeeCategory = ({ data, handledeleteid }) => {
+  let { _id } = data;
   return (
     <div>
       <div className="px-3 mt-8 mb-8 flex justify-between items-center">
@@ -9,7 +10,7 @@ const SingleEmployeeCategory = ({ data }) => {
         <h1>
           {" "}
           <div>
-            <button>
+            <button onClick={() => handledeleteid(_id)}>
               <FaTrash />
             </button>
           </div>

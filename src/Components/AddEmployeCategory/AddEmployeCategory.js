@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Toaster } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 import AddEmployeCategoryModal from "../AllModals/AddEmployeCategoryModal";
 import SingleEmployeeCategory from "./SingleEmployeeCategory";
+import axios from "axios";
 
 const AddEmployeCategory = () => {
   let [data, setData] = useState([]);
@@ -10,6 +11,30 @@ const AddEmployeCategory = () => {
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);
+
+  const handledeleteid = async (_id) => {
+    const proceed = window.confirm("Are you sure to delete this?");
+    try {
+      if (proceed) {
+        const config = {
+          headers: {
+            "content-type": "application/json",
+          },
+        };
+        const { data } = await axios.delete(
+          `http://localhost:5000/getallemployeecategory/${_id}`,
+          config
+        );
+        // console.log(data);
+        toast.success("Successfully Deleted");
+      }
+    } catch (error) {
+      console.log(error);
+      alert(error.response.data.msg);
+      toast.error("Something Went Worng");
+    }
+  };
+
   return (
     <div>
       <Toaster position="top-center" reverseOrder={false} />
@@ -34,6 +59,7 @@ const AddEmployeCategory = () => {
             <SingleEmployeeCategory
               data={data}
               key={data._id}
+              handledeleteid={handledeleteid}
             ></SingleEmployeeCategory>
           ))}
         </div>

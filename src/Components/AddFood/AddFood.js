@@ -87,7 +87,6 @@ const AddFood = () => {
         <div className="menu-list">
           <div className="menu-list-titles mt-8 mb-8 flex justify-between items-center">
             <h1 className="w-96">Food Name</h1>
-            <h1 className="w-96  text-center">Food Catagoreis</h1>
             <h1 className="w-96  text-center">Food Price</h1>
             <h1 className="w-96  text-center">Food Status</h1>
             <h1 className="w-96 text-center">Aciton</h1>
