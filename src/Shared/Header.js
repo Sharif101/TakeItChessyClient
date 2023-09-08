@@ -27,6 +27,16 @@ const Header = () => {
       </li>
       <li className="mx-1">
         <NavLink
+          to="/login"
+          style={({ isActive }) =>
+            isActive ? { backgroundColor: "#1D1F21", borderRadius: "6px" } : {}
+          }
+        >
+          Login
+        </NavLink>
+      </li>
+      <li className="mx-1">
+        <NavLink
           to="/dashboard/addfood"
           style={({ isActive }) =>
             isActive ? { backgroundColor: "#1D1F21", borderRadius: "6px" } : {}

@@ -8,6 +8,7 @@ import AddFood from "../Components/AddFood/AddFood";
 import AddCategory from "../Components/AddCategory/AddCategory";
 import OrderLayout from "../Layout/OrderLayout";
 import AddEmployeCategory from "../Components/AddEmployeCategory/AddEmployeCategory";
+import Login from "../Components/Login/Login";
 
 let router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ let router = createBrowserRouter([
       {
         path: "/ordernow",
         element: <OrderNow></OrderNow>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
       {
         path: "/dashboard",
