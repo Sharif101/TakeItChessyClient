@@ -29,7 +29,7 @@ const Header = () => {
         <NavLink
           to="/login"
           style={({ isActive }) =>
-            isActive ? { backgroundColor: "#1D1F21", borderRadius: "6px" } : {}
+            isActive ? { backgroundColor: "#5D5D5D", borderRadius: "6px" } : {}
           }
         >
           Login

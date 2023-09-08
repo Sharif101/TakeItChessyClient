@@ -430,3 +430,18 @@ textarea {
   font-weight: 600;
   font-size: 14px;
 }
+
+/* ---------------login page--------------------- */
+.loginPage form h2 {
+  font-family: var(--home-title);
+  color: #007cff;
+  font-size: 25px;
+  font-weight: 600;
+}
+.loginPage small {
+  font-size: 17px;
+  font-family: var(--dashboad-titlefont);
+}
+.loginPage span {
+  font-size: 14px;
+}
