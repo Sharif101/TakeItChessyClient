@@ -9,7 +9,7 @@ const Header = () => {
         <NavLink
           to="/"
           style={({ isActive }) =>
-            isActive ? { backgroundColor: "#1D1F21", borderRadius: "6px" } : {}
+            isActive ? { backgroundColor: "#5D5D5D", borderRadius: "6px" } : {}
           }
         >
           Home
@@ -19,7 +19,7 @@ const Header = () => {
         <NavLink
           to="/ordernow"
           style={({ isActive }) =>
-            isActive ? { backgroundColor: "#1D1F21", borderRadius: "6px" } : {}
+            isActive ? { backgroundColor: "#5D5D5D", borderRadius: "6px" } : {}
           }
         >
           Order Now
@@ -39,7 +39,7 @@ const Header = () => {
         <NavLink
           to="/dashboard/addfood"
           style={({ isActive }) =>
-            isActive ? { backgroundColor: "#1D1F21", borderRadius: "6px" } : {}
+            isActive ? { backgroundColor: "#5D5D5D", borderRadius: "6px" } : {}
           }
         >
           Dashboard
