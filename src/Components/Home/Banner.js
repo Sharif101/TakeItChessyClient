@@ -32,7 +32,7 @@ const Banner = () => {
               <span>
                 <img src={play} alt="" />
               </span>
-              Watch our stroy
+              Watch our story
             </a>
           </div>
         </div>
