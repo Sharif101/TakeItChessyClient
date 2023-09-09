@@ -30,13 +30,16 @@ export default function Login() {
             <div>
               <input type="checkbox" /> <span>Keep me logged in</span>
             </div>
+            <p>
+              Doesn't have an account yet? <span>Sign Up</span>
+            </p>
             {/* -------------------------------------- */}
             <button
               className="custom-button w-10/12"
               type="submit"
               // isLoading={loading}
             >
-              Submit
+              Login
             </button>
           </form>
         </div>

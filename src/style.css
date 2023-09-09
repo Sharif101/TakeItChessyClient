@@ -8,7 +8,7 @@
   --btn-color: linear-gradient(135deg, #14bd9d 0%, #40c77c 100%);
   --error: #ee4c63;
   --box-shadow: 0px 3px 7px 1px rgba(207, 207, 207, 0.979);
-  --nav-backgroud: #f6f5f1a4;
+  --nav-backgroud: #fffffd;
   --menu-fort: "Dancing Script", cursive;
   --description-font: "Great Vibes", cursive;
   --home-title: "Lora", serif;
@@ -39,6 +39,7 @@
   background: var(--nav-backgroud);
   border-radius: 0;
   position: relative;
+  box-shadow: 0px 2px 11px #dadbe1;
   /* box-shadow: 6.31px 6.31px 21px #d1d3d7, -6.31px -6.31px 21px #ffffff; */
 }
 
@@ -444,4 +445,15 @@ textarea {
 }
 .loginPage span {
   font-size: 14px;
+}
+.loginPage p {
+  font-family: var(--dashboad-titlefont);
+  font-size: 16px;
+  font-weight: 500;
+}
+.loginPage p span {
+  font-family: var(--dashboad-titlefont);
+  font-size: 16px;
+  font-weight: 500;
+  color: blue;
 }
