@@ -1,5 +1,6 @@
 import React from "react";
 import img from "../../images/6310507.jpg";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -31,7 +32,10 @@ export default function Login() {
               <input type="checkbox" /> <span>Keep me logged in</span>
             </div>
             <p>
-              Doesn't have an account yet? <span>Sign Up</span>
+              Doesn't have an account yet?{" "}
+              <span>
+                <Link to="/signup">Sign Up</Link>
+              </span>
             </p>
             {/* -------------------------------------- */}
             <button
