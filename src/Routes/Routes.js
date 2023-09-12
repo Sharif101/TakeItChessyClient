@@ -10,6 +10,7 @@ import OrderLayout from "../Layout/OrderLayout";
 import AddEmployeCategory from "../Components/AddEmployeCategory/AddEmployeCategory";
 import Login from "../Components/Login/Login";
 import Signup from "../Components/Login/Signup";
+import AddEmployee from "../Components/AddEmployee/AddEmployee";
 
 let router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ let router = createBrowserRouter([
           {
             path: "/dashboard/addcategory",
             element: <AddCategory></AddCategory>,
+          },
+          {
+            path: "/dashboard/addemployee",
+            element: <AddEmployee></AddEmployee>,
           },
           {
             path: "/dashboard/addemployeecategory",
