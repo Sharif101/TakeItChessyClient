@@ -20,7 +20,7 @@ const AddCategoryModal = () => {
         },
       };
       const { data } = await axios.post(
-        "https://takeitchessy-q09m0q88j-sharif101.vercel.app/allcategory",
+        "http://localhost:5000/allcategory",
         { categoryname, categorypic },
         config
       );

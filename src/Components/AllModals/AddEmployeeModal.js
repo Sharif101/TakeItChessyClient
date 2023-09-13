@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const AddEmployeeModal = () => {
+  let [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/getallemployeecategory")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, [data]);
+
   return (
     <div>
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
@@ -12,7 +20,9 @@ const AddEmployeeModal = () => {
       </button>
       <dialog id="my_modal_4" className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
-          <h3 className="font-bold text-lg">Hello!</h3>
+          <h3 className="modal-title  mb-4">
+            Never eat more than you can life!
+          </h3>
 
           <div>
             <form className="flex flex-col items-center inpt-form">
@@ -25,6 +35,11 @@ const AddEmployeeModal = () => {
                 <option disabled selected>
                   Choose Employee Cetagories
                 </option>
+                {data.map((d) => (
+                  <option key={d._id} value={d._id}>
+                    {d.employeeCategoryName}
+                  </option>
+                ))}
               </select>
 
               {/* -------------------------- */}
@@ -74,7 +89,7 @@ const AddEmployeeModal = () => {
               />
 
               {/* -------------------------------------- */}
-              <button className="custom-button" type="submit">
+              <button className="custom-button w-4/12" type="submit">
                 Submit
               </button>
             </form>
