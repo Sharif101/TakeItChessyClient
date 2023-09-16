@@ -1,7 +1,17 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const AddEmployeeModal = () => {
   let [data, setData] = useState([]);
+
+  const [employeeCategory, setEmployeeCategory] = useState();
+  const [employeeName, setEmployeeName] = useState();
+  const [employeeEmail, setEmployeeEmail] = useState();
+  const [employeePhoneNo, setEmployeePhoneNo] = useState();
+  const [employeeWorkTime, setEmployeeWorkTime] = useState();
+  const [employeeSallery, setEmployeeSallery] = useState();
+  const [employeeAddress, setEmployeeAddress] = useState();
 
   useEffect(() => {
     fetch("http://localhost:5000/getallemployeecategory")
@@ -9,8 +19,55 @@ const AddEmployeeModal = () => {
       .then((data) => setData(data));
   }, [data]);
 
+  const handleChange = (e) => {
+    setEmployeeCategory(e.target.value);
+  };
+  // ------------------------------
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    if (!employeeName || !employeeEmail) {
+      toast.error("pleaase fill all field");
+    }
+    try {
+      const config = {
+        headers: {
+          "content-type": "application/json",
+        },
+      };
+      const { data } = await axios.post(
+        "http://localhost:5000/allemployee",
+        {
+          employeeCategory,
+          employeeName,
+          employeeEmail,
+          employeePhoneNo,
+          employeeWorkTime,
+          employeeSallery,
+          employeeAddress,
+        },
+        config
+      );
+      toast.success("created successfull");
+
+      setEmployeeCategory("");
+      setEmployeeName("");
+      setEmployeeEmail("");
+      setEmployeePhoneNo("");
+      setEmployeeWorkTime("");
+      setEmployeeSallery("");
+      setEmployeeAddress("");
+      // console.log(data);
+    } catch (error) {
+      // console.log(error);
+      toast.error("Something Went Worng");
+    }
+  };
+
+  // ---------------------------------------------
+
   return (
     <div>
+      <Toaster position="top-center" reverseOrder={false} />
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
       <button
         className="btn"
@@ -29,14 +86,14 @@ const AddEmployeeModal = () => {
               {/* ---------------------------------- */}
 
               <select
-                // onChange={handleChange}
+                onChange={handleChange}
                 className="select select-bordered w-full max-w-xs seleted-value"
               >
                 <option disabled selected>
                   Choose Employee Cetagories
                 </option>
                 {data.map((d) => (
-                  <option key={d._id} value={d._id}>
+                  <option key={d._id} value={d.employeeCategoryName}>
                     {d.employeeCategoryName}
                   </option>
                 ))}
@@ -46,29 +103,39 @@ const AddEmployeeModal = () => {
               <input
                 type="text"
                 placeholder="Name"
+                value={employeeName}
+                onChange={(e) => setEmployeeName(e.target.value)}
                 className="input input-bordered input-md w-full max-w-xs"
               />
               <input
                 type="text"
                 placeholder="Email"
+                value={employeeEmail}
+                onChange={(e) => setEmployeeEmail(e.target.value)}
                 className="input input-bordered input-md w-full max-w-xs"
               />
 
               <input
                 type="number"
                 placeholder="Phone No"
+                value={employeePhoneNo}
+                onChange={(e) => setEmployeePhoneNo(e.target.value)}
                 className="input input-bordered input-md w-full max-w-xs"
               />
 
               <input
                 type="text"
                 placeholder="Work Time"
+                value={employeeWorkTime}
+                onChange={(e) => setEmployeeWorkTime(e.target.value)}
                 className="input input-bordered input-md w-full max-w-xs"
               />
 
               <input
                 type="text"
                 placeholder="Sallery"
+                value={employeeSallery}
+                onChange={(e) => setEmployeeSallery(e.target.value)}
                 className="input input-bordered input-md w-full max-w-xs"
               />
 
@@ -76,6 +143,8 @@ const AddEmployeeModal = () => {
                 className="textarea textarea-bordered w-full max-w-xs"
                 placeholder="Addresss"
                 type="text"
+                value={employeeAddress}
+                onChange={(e) => setEmployeeAddress(e.target.value)}
               ></textarea>
 
               <input
@@ -89,7 +158,11 @@ const AddEmployeeModal = () => {
               />
 
               {/* -------------------------------------- */}
-              <button className="custom-button w-4/12" type="submit">
+              <button
+                className="custom-button w-4/12"
+                type="submit"
+                onClick={submitHandler}
+              >
                 Submit
               </button>
             </form>
