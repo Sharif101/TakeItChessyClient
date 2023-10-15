@@ -405,6 +405,12 @@ textarea {
   font-family: var(--home-title);
 }
 
+.red {
+  color: #ff9563;
+}
+.blue {
+  color: #007cff;
+}
 /* ----------------------for image---------------------------- */
 #propural-dish .single-food .image {
   height: 250px !important;

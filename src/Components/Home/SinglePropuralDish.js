@@ -31,7 +31,13 @@ const SinglePropuralDish = ({ d }) => {
             : `${fooddescriptions.slice(0, 100)} ...see more`}
         </p>
         <h3>Price: {foodprice}tk</h3>
-        <span>{foodstatus}</span>
+        <p>
+          {foodstatus === "In Stoke" ? (
+            <span className="blue">{foodstatus}</span>
+          ) : (
+            <span className="red">{foodstatus}</span>
+          )}
+        </p>
       </div>
     </div>
   );
