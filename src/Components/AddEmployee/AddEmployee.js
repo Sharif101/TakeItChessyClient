@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AddEmployeeModal from "../AllModals/AddEmployeeModal";
+import AddSingleEmployee from "./AddSingleEmployee";
+import { Toaster } from "react-hot-toast";
 
 const AddEmployee = () => {
+  const [data, setData] = useState([]);
+  let [search, setSearch] = useState("");
+
+  useEffect(() => {
+    fetch("http://localhost:5000/allemployee")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, [data]);
   return (
     <div>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="flex justify-between items-center">
         <h4 className="form-title">Add Employee Here!</h4>
         {/* ------------------------------- */}
@@ -13,6 +24,7 @@ const AddEmployee = () => {
               type="text"
               placeholder="Search Employee Name"
               className="input input-bordered"
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
           {/* ------------modal--------- */}
@@ -33,6 +45,17 @@ const AddEmployee = () => {
             <h1 className="w-96 text-center">Aciton</h1>
           </div>
         </div>
+
+        {/* ----------- */}
+        {data
+          .filter((d) => {
+            return search.toLocaleLowerCase() === ""
+              ? d
+              : d.toLocaleLowerCase().include(search);
+          })
+          .map((d) => (
+            <AddSingleEmployee d={d} key={d._id} />
+          ))}
       </div>
     </div>
   );
