@@ -51,7 +51,7 @@ const AddEmployee = () => {
           .filter((d) => {
             return search.toLocaleLowerCase() === ""
               ? d
-              : d.toLocaleLowerCase().include(search);
+              : d.employeeName.toLocaleLowerCase().includes(search);
           })
           .map((d) => (
             <AddSingleEmployee d={d} key={d._id} />
