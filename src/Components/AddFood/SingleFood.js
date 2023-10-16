@@ -14,7 +14,14 @@ const SingleFood = ({ d, handleDelete }) => {
       <div className="p-2 mt-3 flex justify-between items-center items-center foodicons dashboardText">
         <h1 className="w-96 font-medium">{d.foodname}</h1>
         <h1 className="w-96  text-center">{d.foodprice}</h1>
-        <h1 className="w-96  text-center">{d.foodstatus}</h1>
+        {/* <h1 className="w-96  text-center">{d.foodstatus}</h1> */}
+        <h1>
+          {d.foodstatus === "In Stoke" ? (
+            <h1 className="blue w-80 text-center">{d.foodstatus}</h1>
+          ) : (
+            <h1 className="red w-80 text-center">{d.foodstatus}</h1>
+          )}
+        </h1>
         <h1 className="w-96 flex items-center  justify-between text-center">
           <div>
             <button
