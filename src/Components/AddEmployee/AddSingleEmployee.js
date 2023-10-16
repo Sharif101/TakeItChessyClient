@@ -1,4 +1,5 @@
 import React from "react";
+import { FaEye, FaTrash, FaPen } from "react-icons/fa";
 
 const AddSingleEmployee = ({ d }) => {
   return (
@@ -8,7 +9,23 @@ const AddSingleEmployee = ({ d }) => {
         <h1 className="w-96">{d.employeeCategory}</h1>
         <h1 className="w-96">{d.employeePhoneNo}</h1>
         <h1 className="w-96">{d.employeeEmail}</h1>
-        <h1 className="w-96 flex items-center  justify-between text-center"></h1>
+        <h1 className="w-96 flex items-center  justify-between text-center">
+          <div>
+            <button>
+              <FaPen />
+            </button>
+          </div>
+          <div>
+            <button>
+              <FaEye />
+            </button>
+          </div>
+          <div>
+            <button>
+              <FaTrash />
+            </button>
+          </div>
+        </h1>
       </div>
       {/* ----------------------------------- */}
     </div>
