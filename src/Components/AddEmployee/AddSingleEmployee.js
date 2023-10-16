@@ -4,8 +4,8 @@ import { FaEye, FaTrash, FaPen } from "react-icons/fa";
 const AddSingleEmployee = ({ d }) => {
   return (
     <div>
-      <div className="p-2 mt-3 flex justify-between items-center items-center foodicons">
-        <h1 className="w-96">{d.employeeName}</h1>
+      <div className="p-2 mt-3 flex justify-between items-center items-center foodicons dashboardText">
+        <h1 className="w-96 font-medium">{d.employeeName}</h1>
         <h1 className="w-96">{d.employeeCategory}</h1>
         <h1 className="w-96">{d.employeePhoneNo}</h1>
         <h1 className="w-96">{d.employeeEmail}</h1>

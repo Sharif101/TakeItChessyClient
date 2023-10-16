@@ -82,7 +82,6 @@ textarea {
 }
 
 .menu-list-titles {
-  /* background-color: #fafafa; */
   padding: 10px;
   font-family: var(--dashboad-titlefont);
   font-size: 20px;
@@ -91,15 +90,16 @@ textarea {
 
 .foodicons button {
   font-size: 13px;
-  /* color: white; */
-  /* background-color: var(--icons-color); */
   color: var(--icons-color);
   background-color: none;
   border: 1px solid rgba(185, 185, 185, 0.637);
   padding: 5px 15px;
   border-radius: 8px;
 }
-
+.dashboardText {
+  font-family: var(--home-title);
+  font-size: 17px;
+}
 .food-list {
   background-color: var(--food-list-backgroud);
   padding: 0px 20px 10px 20px;
