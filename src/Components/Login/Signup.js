@@ -48,6 +48,24 @@ const Signup = () => {
               placeholder="Confirm Password"
               className="input input-bordered input-md w-full max-w-xs"
             />
+            {/* ------------------------------------------------ */}
+
+            <div className="w-full flex justify-between">
+              <div className="form-control">
+                <label className="label cursor-pointer">
+                  <input
+                    required
+                    type="radio"
+                    name="radio-10"
+                    value="----"
+                    className=" radio checked:bg-blue-500"
+                  />
+                  <span className="label-text ml-3">Employee</span>
+                </label>
+              </div>
+            </div>
+
+            {/* ------------------------------------------------ */}
             <div>
               <input type="checkbox" /> <span>Keep me logged in</span>
             </div>
