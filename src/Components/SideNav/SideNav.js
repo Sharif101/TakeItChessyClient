@@ -57,6 +57,18 @@ const SideNav = () => {
                 Employee Category
               </NavLink>
             </li>
+            <li className="my-2">
+              <NavLink
+                to="/dashboard/allusers"
+                style={({ isActive }) =>
+                  isActive
+                    ? { backgroundColor: "#646464", borderRadius: "6px" }
+                    : {}
+                }
+              >
+                Users
+              </NavLink>
+            </li>
           </ul>
         </li>
       </ul>

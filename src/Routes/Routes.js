@@ -11,6 +11,7 @@ import AddEmployeCategory from "../Components/AddEmployeCategory/AddEmployeCateg
 import Login from "../Components/Login/Login";
 import Signup from "../Components/Login/Signup";
 import AddEmployee from "../Components/AddEmployee/AddEmployee";
+import Users from "../Components/Users/Users";
 
 let router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ let router = createBrowserRouter([
           {
             path: "/dashboard/addemployeecategory",
             element: <AddEmployeCategory></AddEmployeCategory>,
+          },
+          {
+            path: "/dashboard/allusers",
+            element: <Users />,
           },
         ],
       },
