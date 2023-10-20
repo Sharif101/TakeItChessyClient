@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Signup = () => {
   const navigate = useNavigate;
 
+  const [errors, setErrors] = useState(null);
   const [name, setName] = useState();
   const [userName, setUserName] = useState();
   const [phoneNo, setPhoneNO] = useState();
@@ -51,8 +52,7 @@ const Signup = () => {
 
       // console.log(data);
     } catch (error) {
-      // console.log(error);
-      toast.error("Something Went Worng");
+      toast.error("Somthing went wrong");
     }
   };
   return (
