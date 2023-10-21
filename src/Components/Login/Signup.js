@@ -53,6 +53,8 @@ const Signup = () => {
       // console.log(data);
     } catch (error) {
       toast.error("Somthing went wrong");
+      console.log(error.message);
+      console.log(error.response.data);
     }
   };
   return (
