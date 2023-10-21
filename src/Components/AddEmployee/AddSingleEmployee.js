@@ -1,7 +1,8 @@
 import React from "react";
 import { FaEye, FaTrash, FaPen } from "react-icons/fa";
 
-const AddSingleEmployee = ({ d }) => {
+const AddSingleEmployee = ({ d, handleDelete }) => {
+  let { _id } = d;
   return (
     <div>
       <div className="p-2 mt-3 flex justify-between items-center items-center foodicons dashboardText">
@@ -21,7 +22,7 @@ const AddSingleEmployee = ({ d }) => {
             </button>
           </div>
           <div>
-            <button>
+            <button onClick={() => handleDelete(_id)}>
               <FaTrash />
             </button>
           </div>

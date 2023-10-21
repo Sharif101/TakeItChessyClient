@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import AddEmployeeModal from "../AllModals/AddEmployeeModal";
 import AddSingleEmployee from "./AddSingleEmployee";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
 
 const AddEmployee = () => {
   const [data, setData] = useState([]);
@@ -12,6 +13,30 @@ const AddEmployee = () => {
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);
+
+  //delete single employee
+  const handleDelete = async (_id) => {
+    const proceed = window.confirm("Are you sure to delete this?");
+    try {
+      if (proceed) {
+        const config = {
+          headers: {
+            "content-type": "application/json",
+          },
+        };
+        const { data } = await axios.delete(
+          `http://localhost:5000/allemployee/${_id}`,
+          config
+        );
+        // console.log(data);
+        toast.success("Successfully Deleted!");
+      }
+    } catch (error) {
+      console.log(error);
+      alert(error.response.data.msg);
+      toast.error("Something Went Worng");
+    }
+  };
   return (
     <div>
       <Toaster position="top-center" reverseOrder={false} />
@@ -54,7 +79,7 @@ const AddEmployee = () => {
               : d.employeeName.toLocaleLowerCase().includes(search);
           })
           .map((d) => (
-            <AddSingleEmployee d={d} key={d._id} />
+            <AddSingleEmployee d={d} key={d._id} handleDelete={handleDelete} />
           ))}
       </div>
     </div>
