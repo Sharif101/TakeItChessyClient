@@ -463,3 +463,14 @@ textarea {
   font-weight: 500;
   color: blue;
 }
+
+/* ================= Scrollbar Styling ================= */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 5px;
+  border-radius: 20px;
+  background: var(--primary-color);
+}
