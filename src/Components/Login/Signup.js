@@ -13,7 +13,6 @@ const Signup = () => {
   const [phoneNo, setPhoneNO] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [confirmPassword, setConfirmPassword] = useState();
   const [role, setRole] = useState("employee");
 
   const submitHandler = async (e) => {
@@ -35,7 +34,6 @@ const Signup = () => {
           phoneNo,
           email,
           password,
-          confirmPassword,
           role,
         },
         config
@@ -47,14 +45,15 @@ const Signup = () => {
       setPhoneNO("");
       setEmail("");
       setPassword("");
-      setConfirmPassword("");
       setRole("");
 
       // console.log(data);
     } catch (error) {
-      toast.error("Somthing went wrong");
-      console.log(error.message);
-      console.log(error.response.data);
+      toast.error(error.response.data.message);
+      setErrors(error.response.data.message);
+      // toast.error("Somthing went wrong");
+      // console.log(error.message);
+      // console.log(error.response.data.message);
     }
   };
   return (
@@ -78,6 +77,7 @@ const Signup = () => {
               onChange={(e) => setName(e.target.value)}
               className="input input-bordered input-md w-full max-w-xs"
             />
+            <small className="errorMsg">{errors}</small>
 
             <input
               type="text"
@@ -102,6 +102,8 @@ const Signup = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="input input-bordered input-md w-full max-w-xs"
             />
+            <small className="errorMsg">{errors}</small>
+
             <input
               type="password"
               placeholder="Password"
@@ -109,11 +111,10 @@ const Signup = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="input input-bordered input-md w-full max-w-xs"
             />
+            <small className="errorMsg">{errors}</small>
             <input
               type="password"
               placeholder="Confirm Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
               className="input input-bordered input-md w-full max-w-xs"
             />
             {/* ------------------------------------------------ */}

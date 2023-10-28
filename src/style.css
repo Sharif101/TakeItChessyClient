@@ -463,7 +463,11 @@ textarea {
   font-weight: 500;
   color: blue;
 }
-
+.errorMsg {
+  color: #ff5e4b;
+  font-size: 14px !important;
+  margin-top: -12px;
+}
 /* ================= Scrollbar Styling ================= */
 ::-webkit-scrollbar {
   width: 5px;
