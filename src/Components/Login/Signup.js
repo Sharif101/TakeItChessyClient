@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const [errors, setErrors] = useState(null);
   const [name, setName] = useState();
@@ -38,7 +38,12 @@ const Signup = () => {
         },
         config
       );
-      toast.success("Account created");
+      toast.success(
+        <div>
+          Account created Successfully <br />
+          Please login
+        </div>
+      );
 
       setName("");
       setUserName("");
@@ -47,13 +52,11 @@ const Signup = () => {
       setPassword("");
       setRole("");
 
+      navigate("/login");
       // console.log(data);
     } catch (error) {
       toast.error(error.response.data.message);
       setErrors(error.response.data.message);
-      // toast.error("Somthing went wrong");
-      // console.log(error.message);
-      // console.log(error.response.data.message);
     }
   };
   return (
@@ -77,7 +80,7 @@ const Signup = () => {
               onChange={(e) => setName(e.target.value)}
               className="input input-bordered input-md w-full max-w-xs"
             />
-            <small className="errorMsg">{errors}</small>
+            {/* <small className="errorMsg">{errors}</small> */}
 
             <input
               type="text"
@@ -102,19 +105,13 @@ const Signup = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="input input-bordered input-md w-full max-w-xs"
             />
-            <small className="errorMsg">{errors}</small>
+            {/* <small className="errorMsg">{errors}</small> */}
 
             <input
               type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="input input-bordered input-md w-full max-w-xs"
-            />
-            <small className="errorMsg">{errors}</small>
-            <input
-              type="password"
-              placeholder="Confirm Password"
               className="input input-bordered input-md w-full max-w-xs"
             />
             {/* ------------------------------------------------ */}
