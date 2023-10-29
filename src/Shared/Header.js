@@ -1,8 +1,36 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../style.css";
+import { isLogin, logOut } from "../Utilities/auth";
+import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const [user, setUser] = useState([]);
+  // console.log(user);
+
+  const authenticate = async () => {
+    const loggedIn = await isLogin();
+
+    if (loggedIn.auth) {
+      setUser(loggedIn.data);
+    }
+  };
+
+  useEffect(() => {
+    authenticate();
+  }, []);
+
+  const handleLogOut = () => {
+    logOut();
+    toast.success("Logout Successfully");
+    navigate("/login");
+    //Refresh
+    window.location.reload();
+  };
+
   let menuitems = (
     <React.Fragment>
       <li className="mx-1">
@@ -48,20 +76,8 @@ const Header = () => {
     </React.Fragment>
   );
   return (
-    // <div className="header-navbar">
-    //   <div className="navbar  container mx-auto">
-    //     <div className="flex-1">
-    //       <Link to="/" className="btn btn-ghost normal-case text-xl">
-    //         Take It Chessy
-    //       </Link>
-    //     </div>
-    //     <div className="flex-none">
-    //       <ul className="menu menu-horizontal px-1">{menuitems}</ul>
-    //     </div>
-    //   </div>
-    // </div>
-
     <div className="header-navbar">
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="navbar  container mx-auto">
         <div className="navbar">
           <div className="navbar-start">
@@ -149,15 +165,15 @@ const Header = () => {
                 >
                   <li>
                     <a className="justify-between">
-                      Profile
+                      {user?.name}
                       <span className="badge">New</span>
                     </a>
                   </li>
                   <li>
-                    <a>Settings</a>
+                    <a>{user?.email}</a>
                   </li>
                   <li>
-                    <a>Logout</a>
+                    <a onClick={handleLogOut}>Logout</a>
                   </li>
                 </ul>
               </div>
