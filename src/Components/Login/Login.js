@@ -1,10 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import img from "../../images/6310507.jpg";
 import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { setAuthentication } from "../../Utilities/auth";
 
 export default function Login() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      email,
+      password,
+    };
+
+    axios
+      .post("http://localhost:5000/login", payload)
+      .then((res) => {
+        console.log(res.data);
+
+        setAuthentication(res.data.token);
+        navigate("/");
+        //Refresh
+        window.location.reload();
+        toast.success("Login Successful");
+      })
+      .catch((err) => {
+        toast.error(err?.response?.data?.message);
+      });
+  };
   return (
     <div>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className=" container mx-auto grid lg:grid-cols-2 gap-2 items-center">
         <div className="loginImage">
           <img src={img} alt="" />
@@ -21,11 +53,15 @@ export default function Login() {
             <input
               type="text"
               placeholder="Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="input input-bordered input-md w-full max-w-xs"
             />
             <input
               type="password"
               placeholder="Your Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="input input-bordered input-md w-full max-w-xs"
             />
             <div>
@@ -42,6 +78,7 @@ export default function Login() {
               className="custom-button w-10/12"
               type="submit"
               // isLoading={loading}
+              onClick={submitHandler}
             >
               Login
             </button>
