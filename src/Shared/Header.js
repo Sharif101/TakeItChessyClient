@@ -25,10 +25,10 @@ const Header = () => {
 
   const handleLogOut = () => {
     logOut();
-    toast.success("Logout Successfully");
     navigate("/login");
     //Refresh
     window.location.reload();
+    toast.success("Logout Successfully");
   };
 
   let menuitems = (
