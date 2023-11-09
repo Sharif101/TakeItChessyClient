@@ -10,6 +10,7 @@ export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [show, setShow] = useState(false);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -22,7 +23,7 @@ export default function Login() {
     axios
       .post("http://localhost:5000/login", payload)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
 
         setAuthentication(res.data.token);
         navigate("/");
@@ -34,6 +35,9 @@ export default function Login() {
         toast.error(err?.response?.data?.message);
       });
   };
+
+  const handleClick = () => setShow(!show);
+
   return (
     <div>
       <Toaster position="top-center" reverseOrder={false} />
@@ -57,13 +61,21 @@ export default function Login() {
               onChange={(e) => setEmail(e.target.value)}
               className="input input-bordered input-md w-full max-w-xs"
             />
-            <input
-              type="password"
-              placeholder="Your Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="input input-bordered input-md w-full max-w-xs"
-            />
+            <div className="passInput">
+              <input
+                placeholder="Your Password"
+                value={password}
+                type={show ? "text" : "password"}
+                onChange={(e) => setPassword(e.target.value)}
+                className="input input-bordered input-md w-full max-w-xs "
+              />
+              <label className="swap swap-flip showIcon">
+                <input type="checkbox" onClick={handleClick} />
+
+                <div className="swap-on iconlogin">😈</div>
+                <div className="swap-off iconlogin">😀</div>
+              </label>
+            </div>
             <div>
               <input type="checkbox" /> <span>Keep me logged in</span>
             </div>
@@ -83,6 +95,16 @@ export default function Login() {
               Login
             </button>
           </form>
+          {/* ------guest user----- */}
+          <button
+            onClick={() => {
+              setEmail("guest@gmail.com");
+              setPassword("123456");
+            }}
+            className="custom-button w-10/12"
+          >
+            Guest User Credentials
+          </button>
         </div>
       </div>
     </div>
