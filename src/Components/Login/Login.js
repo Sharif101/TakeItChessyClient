@@ -5,6 +5,8 @@ import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { setAuthentication } from "../../Utilities/auth";
+import eyeoff from "../../images/login/eyeoff.png";
+import eyeon from "../../images/login/eyeon.png";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -69,12 +71,21 @@ export default function Login() {
                 onChange={(e) => setPassword(e.target.value)}
                 className="input input-bordered input-md w-full max-w-xs "
               />
-              <label className="swap swap-flip showIcon">
-                <input type="checkbox" onClick={handleClick} />
-
-                <div className="swap-on iconlogin">😈</div>
-                <div className="swap-off iconlogin">😀</div>
-              </label>
+              {show ? (
+                <img
+                  src={eyeon}
+                  alt=""
+                  className="iconlogin1"
+                  onClick={handleClick}
+                />
+              ) : (
+                <img
+                  src={eyeoff}
+                  alt=""
+                  className="iconlogin"
+                  onClick={handleClick}
+                />
+              )}
             </div>
             <div>
               <input type="checkbox" /> <span>Keep me logged in</span>
@@ -104,6 +115,17 @@ export default function Login() {
             className="custom-button w-10/12"
           >
             Guest User Credentials
+          </button>
+
+          {/* ------Admin user----- */}
+          <button
+            onClick={() => {
+              setEmail("admin@gmail.com");
+              setPassword("admin123");
+            }}
+            className="custom-button w-10/12"
+          >
+            Admin User Credentials
           </button>
         </div>
       </div>
