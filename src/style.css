@@ -471,12 +471,23 @@ textarea {
 .passInput {
   position: relative;
 }
-.showIcon {
-  width: 0px;
-  height: 0px;
+/* .showIcon {
+  width: 20px;
+  height: 20px;
+} */
+.iconlogin {
+  width: 10%;
   position: absolute;
-  top: 46%;
-  right: 21%;
+  top: 6px;
+  right: 70px;
+  cursor: pointer;
+}
+.iconlogin1 {
+  width: 6%;
+  position: absolute;
+  top: 15px;
+  right: 75px;
+  cursor: pointer;
 }
 
 /* ================= Scrollbar Styling ================= */
