@@ -1,6 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { isLogin } from "../../Utilities/auth";
 
 const SingleOrderFood = ({ data }) => {
+  const [user, setUser] = useState([]);
+  const authenticate = async () => {
+    const loggedIn = await isLogin();
+
+    if (loggedIn.auth) {
+      setUser(loggedIn.data);
+    }
+  };
+
+  useEffect(() => {
+    authenticate();
+  }, []);
+
   let { foodname, fooddescriptions, foodprice, foodstatus, foodpic } = data;
   const [descriptionLength, setDescriptionLength] = useState(true);
 
@@ -40,6 +54,11 @@ const SingleOrderFood = ({ data }) => {
               <span className="red">{foodstatus}</span>
             )}
           </p>
+          {user?.role === "admin" || user?.role === "employee" ? (
+            <p>cart</p>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>
