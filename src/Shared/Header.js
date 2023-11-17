@@ -33,7 +33,7 @@ const Header = () => {
 
   let menuitems = (
     <React.Fragment>
-      <li className="mx-1">
+      <li className="mx-1 font-medium">
         <NavLink
           to="/"
           style={({ isActive }) =>
@@ -43,7 +43,7 @@ const Header = () => {
           Home
         </NavLink>
       </li>
-      <li className="mx-1">
+      <li className="mx-1 font-medium">
         <NavLink
           to="/ordernow"
           style={({ isActive }) =>
@@ -53,7 +53,7 @@ const Header = () => {
           Order Now
         </NavLink>
       </li>
-      <li className="mx-1">
+      <li className="mx-1 font-medium">
         <NavLink
           to="/login"
           style={({ isActive }) =>
@@ -64,7 +64,7 @@ const Header = () => {
         </NavLink>
       </li>
       {user?.role === "admin" && (
-        <li className="mx-1">
+        <li className="mx-1 font-medium">
           <NavLink
             to="/dashboard/addfood"
             style={({ isActive }) =>
