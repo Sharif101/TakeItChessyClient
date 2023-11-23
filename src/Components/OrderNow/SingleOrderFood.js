@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { isLogin } from "../../Utilities/auth";
+import { HiShoppingCart } from "react-icons/hi";
 
 const SingleOrderFood = ({ data }) => {
   const [user, setUser] = useState([]);
@@ -46,19 +47,27 @@ const SingleOrderFood = ({ data }) => {
               ? fooddescriptions
               : `${fooddescriptions.slice(0, 100)} ...see more`}
           </p>
-          <h3>Price: {foodprice}tk</h3>
-          <p>
-            {foodstatus === "In Stoke" ? (
-              <span className="blue">{foodstatus}</span>
-            ) : (
-              <span className="red">{foodstatus}</span>
-            )}
-          </p>
-          {user?.role === "admin" || user?.role === "employee" ? (
-            <p>cart</p>
-          ) : (
-            ""
-          )}
+          <div className="flex justify-between items-center">
+            <div>
+              <h3>Price: {foodprice}tk</h3>
+              <p>
+                {foodstatus === "In Stoke" ? (
+                  <span className="blue">{foodstatus}</span>
+                ) : (
+                  <span className="red">{foodstatus}</span>
+                )}
+              </p>
+            </div>
+            <div>
+              {user?.role === "admin" || user?.role === "employee" ? (
+                <button className="cart-button flex items-center">
+                  Add to Cart <HiShoppingCart className="ml-1" />
+                </button>
+              ) : (
+                ""
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
