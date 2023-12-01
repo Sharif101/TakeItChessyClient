@@ -71,11 +71,11 @@ const AddEmployeeModal = () => {
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
       <button
         className="btn"
-        onClick={() => document.getElementById("my_modal_4").showModal()}
+        onClick={() => document.getElementById("my_modal_2").showModal()}
       >
         + Add Employee
       </button>
-      <dialog id="my_modal_4" className="modal">
+      <dialog id="my_modal_2" className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
           <h3 className="modal-title  mb-4">
             Never eat more than you can life!

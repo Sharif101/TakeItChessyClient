@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { isLogin } from "../../Utilities/auth";
 import { HiShoppingCart } from "react-icons/hi";
+import { Cart } from "../../context/Context";
+import toast, { Toaster } from "react-hot-toast";
 
-const SingleOrderFood = ({ data }) => {
+const SingleOrderFood = ({ data, quantity }) => {
   const [user, setUser] = useState([]);
   const authenticate = async () => {
     const loggedIn = await isLogin();
@@ -34,8 +36,16 @@ const SingleOrderFood = ({ data }) => {
     }
   };
 
+  const alert = () => {
+    toast.success("Added to Cart");
+  };
+
+  const Globalstate = useContext(Cart);
+  const dispatch = Globalstate.dispatch;
+
   return (
     <div>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className="single-food">
         <div className="image">
           <img className="rounded-t-2xl" src={foodpic} alt="" />
@@ -60,7 +70,14 @@ const SingleOrderFood = ({ data }) => {
             </div>
             <div>
               {user?.role === "admin" || user?.role === "employee" ? (
-                <button className="cart-button flex items-center">
+                <button
+                  className="cart-button flex items-center"
+                  onClick={() => {
+                    dispatch({ type: "ADD", payload: data });
+                    alert();
+                  }}
+                  disabled={foodstatus === "In Stoke" ? false : true}
+                >
                   Add to Cart <HiShoppingCart className="ml-1" />
                 </button>
               ) : (

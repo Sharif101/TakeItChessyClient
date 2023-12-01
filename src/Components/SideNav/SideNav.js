@@ -69,6 +69,19 @@ const SideNav = () => {
                 Users
               </NavLink>
             </li>
+
+            <li className="my-2">
+              <NavLink
+                to="/dashboard/allorders"
+                style={({ isActive }) =>
+                  isActive
+                    ? { backgroundColor: "#646464", borderRadius: "6px" }
+                    : {}
+                }
+              >
+                Orders
+              </NavLink>
+            </li>
           </ul>
         </li>
       </ul>

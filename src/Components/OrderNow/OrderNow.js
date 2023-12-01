@@ -3,11 +3,9 @@ import SingleOrderFood from "./SingleOrderFood";
 
 const OrderNow = () => {
   let [data, setData] = useState([]);
-  let [fetchid, setFetchid] = useState();
   let [food, setFood] = useState("http://localhost:5000/getallfood");
   let [foodLoad, setFoodLoad] = useState([]);
   let [search, setSearch] = useState("");
-  // console.log(search);
 
   // ----------------------------
   useEffect(() => {
@@ -15,7 +13,6 @@ const OrderNow = () => {
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);
-  // console.log(data);
 
   // ----------------------------
   useEffect(() => {
@@ -23,13 +20,6 @@ const OrderNow = () => {
       .then((res) => res.json())
       .then((data) => setFoodLoad(data));
   }, [food, setFood]);
-  // console.log(foodLoad);
-
-  // ---------------------------------
-  const handleChange = (e) => {
-    setFetchid(e.target.value);
-  };
-  // console.log(fetchid);
 
   // ---------------------------------------
 
@@ -41,7 +31,6 @@ const OrderNow = () => {
         <div className="flex">
           <div className="mr-2">
             <select
-              // onChange={handleChange}
               onClick={(e) => setFood(e.target.value)}
               className="select select-bordered max-w-xs seleted-value orderfood-dropdown"
             >
@@ -108,7 +97,7 @@ const OrderNow = () => {
                 : data.foodname.toLocaleLowerCase().includes(search);
             })
             .map((data) => (
-              <SingleOrderFood data={data} key={data._id}></SingleOrderFood>
+              <SingleOrderFood data={data} key={data._id} />
             ))}
         </div>
       </section>
