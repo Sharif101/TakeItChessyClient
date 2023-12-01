@@ -41,6 +41,7 @@
   border: 1px solid rgba(206, 206, 206, 0.5);
   font-size: 15px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .header-navbar {
@@ -496,6 +497,37 @@ textarea {
   top: 15px;
   right: 75px;
   cursor: pointer;
+}
+.cartImg {
+  width: 13%;
+}
+.cartImg img {
+  width: 100%;
+}
+.single-cart-pro {
+  border: 1px solid rgba(235, 235, 235, 0.548);
+  margin-bottom: 1em;
+  border-radius: 7px;
+  box-shadow: 7px 7px 14px #ededed, -7px -7px 14px #ffffff;
+}
+.foodname {
+  font-family: var(--home-title);
+  font-weight: 500;
+}
+.subtotal {
+  font-family: var(--home-title);
+  font-size: 14px;
+}
+.emplyeInfo {
+  font-family: var(--dashboad-titlefont);
+  font-size: 16px;
+}
+.orderpreinfo {
+  font-family: var(--dashboad-titlefont);
+}
+.order {
+  color: rgb(4, 100, 245);
+  font-size: 500;
 }
 
 /* ================= Scrollbar Styling ================= */

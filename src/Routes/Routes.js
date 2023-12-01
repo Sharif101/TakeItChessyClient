@@ -12,6 +12,7 @@ import Login from "../Components/Login/Login";
 import Signup from "../Components/Login/Signup";
 import AddEmployee from "../Components/AddEmployee/AddEmployee";
 import Users from "../Components/Users/Users";
+import AllOrders from "../Components/AllOrders/AllOrders";
 
 let router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ let router = createBrowserRouter([
           {
             path: "/dashboard/allusers",
             element: <Users />,
+          },
+          {
+            path: "/dashboard/allorders",
+            element: <AllOrders />,
           },
         ],
       },
