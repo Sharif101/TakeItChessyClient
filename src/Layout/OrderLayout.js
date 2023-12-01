@@ -12,7 +12,7 @@ const OrderLayout = () => {
 
   // let [data, setData] = useState([]);
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/getallfood/category/${id}`)
+  //   fetch(`https://takeitchessy.vercel.app/getallfood/category/${id}`)
   //     .then((res) => res.json())
   //     .then((data) => setData(data));
   // }, [data]);

@@ -7,7 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 const AddCategory = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/getallcategory")
+    fetch("https://takeitchessy.vercel.app/getallcategory")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);
@@ -23,7 +23,7 @@ const AddCategory = () => {
           },
         };
         const { data } = await axios.delete(
-          `http://localhost:5000/getallcategory/${_id}`,
+          `https://takeitchessy.vercel.app/getallcategory/${_id}`,
           config
         );
         // console.log(data);

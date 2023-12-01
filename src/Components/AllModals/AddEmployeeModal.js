@@ -14,7 +14,7 @@ const AddEmployeeModal = () => {
   const [employeeAddress, setEmployeeAddress] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:5000/getallemployeecategory")
+    fetch("https://takeitchessy.vercel.app/getallemployeecategory")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);
@@ -35,7 +35,7 @@ const AddEmployeeModal = () => {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/allemployee",
+        "https://takeitchessy.vercel.app/allemployee",
         {
           employeeCategory,
           employeeName,

@@ -8,7 +8,7 @@ const PropuralDish = () => {
 
   //   --------------------------------
   useEffect(() => {
-    fetch("http://localhost:5000/getallfoodlimit")
+    fetch("https://takeitchessy.vercel.app/getallfoodlimit")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);

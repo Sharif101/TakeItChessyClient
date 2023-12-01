@@ -14,7 +14,7 @@ const AddFood = () => {
   // const handleDelete = (_id) => {
   //   const proceed = window.confirm("Are you sure to delete this?");
   //   if (proceed) {
-  //     fetch(`http://localhost:5000/getallfood/${_id}`, {
+  //     fetch(`https://takeitchessy.vercel.app/getallfood/${_id}`, {
   //       method: "DELETE",
   //     })
   //       .then((res) => res.json())
@@ -37,7 +37,7 @@ const AddFood = () => {
           },
         };
         const { data } = await axios.delete(
-          `http://localhost:5000/getallfood/${_id}`,
+          `https://takeitchessy.vercel.app/getallfood/${_id}`,
           config
         );
         // console.log(data);
@@ -52,7 +52,7 @@ const AddFood = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:5000/getallfood")
+    fetch("https://takeitchessy.vercel.app/getallfood")
       .then((res) => res.json())
       .then((data) => setData(data));
     setIsLoading(false);

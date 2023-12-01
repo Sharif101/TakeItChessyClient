@@ -27,7 +27,7 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/allusers",
+        "https://takeitchessy.vercel.app/allusers",
         {
           name,
           userName,

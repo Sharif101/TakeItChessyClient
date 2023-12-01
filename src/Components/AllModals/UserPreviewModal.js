@@ -4,7 +4,7 @@ const UserPreviewModal = ({ setModal, _id }) => {
   let [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allusers/${_id}`)
+    fetch(`https://takeitchessy.vercel.app/allusers/${_id}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);

@@ -7,7 +7,7 @@ const Users = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allusers")
+    fetch("https://takeitchessy.vercel.app/allusers")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);
@@ -23,7 +23,7 @@ const Users = () => {
           },
         };
         const { data } = await axios.delete(
-          `http://localhost:5000/allusers/${_id}`,
+          `https://takeitchessy.vercel.app/allusers/${_id}`,
           config
         );
         toast.success("Successfully Deleted!");

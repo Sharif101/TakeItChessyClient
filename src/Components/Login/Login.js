@@ -23,7 +23,7 @@ export default function Login() {
     };
 
     axios
-      .post("http://localhost:5000/login", payload)
+      .post("https://takeitchessy.vercel.app/login", payload)
       .then((res) => {
         // console.log(res.data);
 

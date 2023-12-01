@@ -3,13 +3,13 @@ import SingleOrderFood from "./SingleOrderFood";
 
 const OrderNow = () => {
   let [data, setData] = useState([]);
-  let [food, setFood] = useState("http://localhost:5000/getallfood");
+  let [food, setFood] = useState("https://takeitchessy.vercel.app/getallfood");
   let [foodLoad, setFoodLoad] = useState([]);
   let [search, setSearch] = useState("");
 
   // ----------------------------
   useEffect(() => {
-    fetch("http://localhost:5000/getallcategory")
+    fetch("https://takeitchessy.vercel.app/getallcategory")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);
@@ -40,7 +40,10 @@ const OrderNow = () => {
               {data.map((d) => (
                 <option
                   key={d._id}
-                  value={"http://localhost:5000/getallfood/category/" + d._id}
+                  value={
+                    "https://takeitchessy.vercel.app/getallfood/category/" +
+                    d._id
+                  }
                 >
                   {d.categoryname}
                 </option>
@@ -56,16 +59,16 @@ const OrderNow = () => {
               <option disabled selected>
                 Choose Budget
               </option>
-              <option value="http://localhost:5000/getallfood/pricequery/100">
+              <option value="https://takeitchessy.vercel.app/getallfood/pricequery/100">
                 5tk - 100tk
               </option>
-              <option value="http://localhost:5000/getallfood/pricequery/300">
+              <option value="https://takeitchessy.vercel.app/getallfood/pricequery/300">
                 100tk - 300tk
               </option>
-              <option value="http://localhost:5000/getallfood/pricequery/500">
+              <option value="https://takeitchessy.vercel.app/getallfood/pricequery/500">
                 300tk - 500tk
               </option>
-              <option value="http://localhost:5000/getallfood/pricequery/1000">
+              <option value="https://takeitchessy.vercel.app/getallfood/pricequery/1000">
                 500tk - 1000tk
               </option>
             </select>

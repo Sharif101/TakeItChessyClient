@@ -7,7 +7,7 @@ import axios from "axios";
 const AddEmployeCategory = () => {
   let [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/getallemployeecategory")
+    fetch("https://takeitchessy.vercel.app/getallemployeecategory")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);
@@ -22,7 +22,7 @@ const AddEmployeCategory = () => {
           },
         };
         const { data } = await axios.delete(
-          `http://localhost:5000/getallemployeecategory/${_id}`,
+          `https://takeitchessy.vercel.app/getallemployeecategory/${_id}`,
           config
         );
         // console.log(data);

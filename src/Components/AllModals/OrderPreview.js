@@ -4,7 +4,7 @@ const OrderPreview = ({ setModal, _id }) => {
   let [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/orders/${_id}`)
+    fetch(`https://takeitchessy.vercel.app/orders/${_id}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);

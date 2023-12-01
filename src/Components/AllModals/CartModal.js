@@ -34,7 +34,7 @@ const CartModal = () => {
     const loggedIn = await isLogin();
     if (loggedIn.auth) {
       setUser(loggedIn.data);
-      setOrderby(user.name);
+      setOrderby(loggedIn.data.name);
     }
   };
   useEffect(() => {
@@ -57,7 +57,7 @@ const CartModal = () => {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/orders",
+        "https://takeitchessy.vercel.app/orders",
         {
           table,
           orderby,

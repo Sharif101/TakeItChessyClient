@@ -9,7 +9,7 @@ const AddEmployee = () => {
   let [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/allemployee")
+    fetch("https://takeitchessy.vercel.app/allemployee")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);
@@ -25,7 +25,7 @@ const AddEmployee = () => {
           },
         };
         const { data } = await axios.delete(
-          `http://localhost:5000/allemployee/${_id}`,
+          `https://takeitchessy.vercel.app/allemployee/${_id}`,
           config
         );
         // console.log(data);

@@ -18,7 +18,7 @@ const Modalfoodedit = ({ setFoodeditmodal, _id }) => {
   // -----------------------------
 
   useEffect(() => {
-    fetch(`http://localhost:5000/getallfood/${_id}`)
+    fetch(`https://takeitchessy.vercel.app/getallfood/${_id}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -34,7 +34,7 @@ const Modalfoodedit = ({ setFoodeditmodal, _id }) => {
         },
       };
       const { data } = await axios.patch(
-        `http://localhost:5000/getallfood/${_id}`,
+        `https://takeitchessy.vercel.app/getallfood/${_id}`,
         {
           foodname,
           foodprice,

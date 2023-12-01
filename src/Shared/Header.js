@@ -30,7 +30,7 @@ const Header = () => {
 
   const handleLogOut = () => {
     logOut();
-    navigate("/login");
+    navigate("/");
     //Refresh
     window.location.reload();
     toast.success("Logout Successfully");

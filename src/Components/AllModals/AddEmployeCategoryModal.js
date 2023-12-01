@@ -25,7 +25,7 @@ const AddEmployeCategoryModal = () => {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/allemployeecategory",
+        "https://takeitchessy.vercel.app/allemployeecategory",
         { employeeCategoryName },
         config
       );

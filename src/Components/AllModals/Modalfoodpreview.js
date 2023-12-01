@@ -8,7 +8,7 @@ const Modalfoodpreview = ({ setFoodpreviewmodal, _id }) => {
   const [singlefood, setSinglefood] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/getallfood/${_id}`)
+    fetch(`https://takeitchessy.vercel.app/getallfood/${_id}`)
       .then((res) => res.json())
       .then((data) => setSinglefood(data));
   }, []);

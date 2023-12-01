@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const OrderSideNav = ({ handlefetch }) => {
   let [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/getallcategory")
+    fetch("https://takeitchessy.vercel.app/getallcategory")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);

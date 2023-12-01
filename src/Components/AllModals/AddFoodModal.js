@@ -36,7 +36,7 @@ const AddFoodModal = () => {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/allfood",
+        "https://takeitchessy.vercel.app/allfood",
         {
           categoryid,
           foodname,
@@ -66,7 +66,7 @@ const AddFoodModal = () => {
   // ---------------------------------------------
 
   useEffect(() => {
-    fetch("http://localhost:5000/getallcategory")
+    fetch("https://takeitchessy.vercel.app/getallcategory")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);

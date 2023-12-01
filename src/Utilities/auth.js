@@ -25,7 +25,9 @@ export const isLogin = async () => {
   const token = getCookie("token");
 
   if (token) {
-    const res = await axios.post("http://localhost:5000/auth", { token });
+    const res = await axios.post("https://takeitchessy.vercel.app/auth", {
+      token,
+    });
     return res.data;
   }
   return false;

@@ -7,7 +7,7 @@ const AllOrders = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/orders")
+    fetch("https://takeitchessy.vercel.app/orders")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [data]);
@@ -23,7 +23,7 @@ const AllOrders = () => {
           },
         };
         const { data } = await axios.delete(
-          `http://localhost:5000/orders/${_id}`,
+          `https://takeitchessy.vercel.app/orders/${_id}`,
           config
         );
         // console.log(data);
